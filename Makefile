@@ -3,17 +3,11 @@ CC=gcc
 CXX=g++
 CFLAGS=-lm
 
-easy-uncertainty: main.cpp calculator.o
+easy-uncertainty: main.cpp uncertainty.cpp mystack.cpp
 	$(CXX) -o $@ $< $(CFLAGS)
 
-mystack.o:mystack.cpp
-	$(CXX) -c $< $(CFLAGS)
-
-uncertainty.o:uncertainty.cpp
-	$(CXX) -c $< $(CFLAGS)
-
-calculator.o:calculator.cpp mystack.o uncertainty.o
-	$(CXX) -c $< $(CFLAGS)
+debug:main.cpp uncertainty.cpp mystack.cpp
+	$(CXX) -o $@ $< $(CFLAGS) -g
 clean:
 	rm -rf *.o easy-uncertainty
 

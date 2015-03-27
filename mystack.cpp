@@ -3,17 +3,17 @@
 #define STACKMAX 1024
 
 template<class TYPE>
-class CMyStack
+class mystack
 {
 private:
-	TYPE elements[STACKMAX + 1];	//the bottom of the stack is not used. 
+	TYPE elements[STACKMAX];
 public:
 	TYPE* SS;	//stack segment
 	TYPE* SP;	//stack pointer
-	CMyStack()
+	mystack()
 	{
 		SS = elements;
-		SP = &elements[STACKMAX];
+		SP = &elements[STACKMAX];	//point behind the end of the arr
 	}
 	TYPE* push(TYPE element)
 	{
